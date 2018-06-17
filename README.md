@@ -1,6 +1,5 @@
 # Web-Fingerprinting-Detection-Tool
 # Herramienta de detección de *fingerprinting*
-## Manual de Desarrollo
 
 # Indice
 
@@ -47,29 +46,6 @@ La herramienta empleada como *crawler*. Accede a diversos sitios web y almacena 
 * Por defecto, OpenWPM ejecuta tres instancias del navegador.
 * La tabla "javascript" de la base de datos presenta la siguiente estructura:
 
-
-```python
-conn = sqlite3.connect("crawl-data.sqlite")
-df0 = pd.read_sql_query("SELECT * FROM javascript;", conn)
-df0.head()
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
 </style>
 <table border="1" class="dataframe">
   <thead>
@@ -185,29 +161,6 @@ df0.head()
 
 * Otra tabla de la base de datos que es de relevancia para la realización de consultas es "site_visits". Esta tabla nos permite conocer la URL del sitio web original (site_url) que llama al script.
 
-
-```python
-conn = sqlite3.connect("crawl-data.sqlite")
-df0 = pd.read_sql_query("SELECT * FROM site_visits;", conn)
-df0.head()
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
 </style>
 <table border="1" class="dataframe">
   <thead>
@@ -322,31 +275,8 @@ Se empieza por ejecutar una consulta para buscar en la base de datos los objetos
 for url, symbol, op, val, arg, top_url in cur.execute("SELECT distinct j.script_url, j.symbol, j.operation, j.value, j.arguments, v.site_url FROM javascript as j JOIN site_visits as v ON j.visit_id = v.visit_id WHERE j.symbol LIKE '%Canvas%' ORDER BY v.site_url;"):
 ```
 
-Si ejecutaramos la consulta directamente a la base de datos, obtendríamos un resultado como el siguiente:
+Si ejecutáramos la consulta directamente a la base de datos, obtendríamos un resultado como el siguiente:
 
-
-```python
-conn = sqlite3.connect("crawl-data.sqlite")
-df2 = pd.read_sql_query("SELECT distinct j.script_url, j.symbol, j.operation, j.value, j.arguments, v.site_url FROM javascript as j JOIN site_visits as v ON j.visit_id = v.visit_id WHERE j.symbol LIKE '%Canvas%' ORDER BY v.site_url;", conn)
-df2.head()
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
 </style>
 <table border="1" class="dataframe">
   <thead>
