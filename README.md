@@ -46,7 +46,6 @@ La herramienta empleada como *crawler*. Accede a diversos sitios web y almacena 
 * Por defecto, OpenWPM ejecuta tres instancias del navegador.
 * La tabla "javascript" de la base de datos presenta la siguiente estructura:
 
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -161,7 +160,6 @@ La herramienta empleada como *crawler*. Accede a diversos sitios web y almacena 
 
 * Otra tabla de la base de datos que es de relevancia para la realización de consultas es "site_visits". Esta tabla nos permite conocer la URL del sitio web original (site_url) que llama al script.
 
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -277,7 +275,6 @@ for url, symbol, op, val, arg, top_url in cur.execute("SELECT distinct j.script_
 
 Si ejecutáramos la consulta directamente a la base de datos, obtendríamos un resultado como el siguiente:
 
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
