@@ -463,5 +463,3 @@ if len(fp_sites) == 0:
 
 * Para seleccionar el fichero CSV, se emplea una ventana de diálogo de Tkinter.
 * Para mayor información sobre los widgets empleados, así como de los widgets en general, se recomienda consultar el siguiente enlace: https://ipywidgets.readthedocs.io/en/latest/examples/Widget%20Basics.html
-
-<div style="text-align: right"> © 2018 Juan D. Márquez Lagalla </div>
